@@ -1,6 +1,6 @@
 package com.skyspica.User.Service;
 
-import com.skyspica.Account.Vo.AccountVo;
+
 import com.skyspica.User.Vo.SlideVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
