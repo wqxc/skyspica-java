@@ -8,8 +8,8 @@ import com.skyspica.User.Controller.SlideController;
 public class SkyspicaApplication {
 
 	public static void main(String[] args) {
-		SlideController slideController=new SlideController();
-		slideController.getSlideVo();
+//		SlideController slideController=new SlideController();
+//		slideController.getSlideVo();
 		SpringApplication.run(SkyspicaApplication.class, args);
 	}
 }

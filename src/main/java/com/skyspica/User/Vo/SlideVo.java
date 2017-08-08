@@ -7,8 +7,9 @@ import javax.validation.constraints.NotNull;
  */
 public class SlideVo {
     public String url;
-    public String title;
-    public String des;
+    public String titles;
+    public String description;
+    public int id;
 
 
     public void setUrl(String url) {
@@ -18,19 +19,34 @@ public class SlideVo {
         return url;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitles(String titles) {
+        this.titles = titles;
     }
-    public String getTitle() {
-        return title;
-    }
-
-    public void setDes(String des) {
-        this.des = des;
-    }
-    public String getDes() {
-        return des;
+    public String getTitles() {
+        return titles;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getDescription() {
+        return description;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "url='" + url + '\'' +
+                ", title='" + titles + '\'' +
+                ", id='" + id + '\'' +
+                ", desc='" + description + '\'' +
+                '}';
+    }
 }
