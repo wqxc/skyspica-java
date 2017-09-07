@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import com.skyspica.XiaoMi.Vo.FenLeiOtherVo;
+import com.skyspica.XiaoMi.Vo.ProductsVo;
 
 /**
  * Created by xiaolei on 17/9/7.
@@ -19,8 +20,7 @@ import com.skyspica.XiaoMi.Vo.FenLeiOtherVo;
 public class fenLeiService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-
+//小手机的分类
     public List<FenLeiVo> getFenLeiList(){
 
         String sql = " SELECT id,text,isNav from fenlei";
@@ -38,6 +38,7 @@ public class fenLeiService {
 
         return FenLeiList;
     }
+//    其他的商品分类
     public List<FenLeiOtherVo> getFenLeiOtherList(){
 
         String sql = " SELECT id,text from fenleiheshe";
@@ -53,6 +54,27 @@ public class fenLeiService {
         });
 
         return FenLeiOtherList;
+    }
+//    获取产品的参数
+    public List<ProductsVo> getProductsList(){
+
+        String sql = " SELECT productId,name,price,img,number,fl_id from products";
+
+        List<ProductsVo> productList = jdbcTemplate.query(sql, new RowMapper<ProductsVo>() {
+            @Override
+            public ProductsVo mapRow(ResultSet resultSet, int i) throws SQLException {
+                ProductsVo pv = new ProductsVo();
+                pv.setProductId(resultSet.getInt("productId"));
+                pv.setName(resultSet.getString("name"));
+                pv.setPrice(resultSet.getString("price"));
+                pv.setImg(resultSet.getString("img"));
+                pv.setNumber(resultSet.getInt("number"));
+                pv.setFl_id(resultSet.getInt("fl_id"));
+                return pv;
+            }
+        });
+
+        return productList;
     }
 
 }

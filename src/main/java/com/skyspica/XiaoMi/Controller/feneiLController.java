@@ -1,5 +1,6 @@
 package com.skyspica.XiaoMi.Controller;
 
+import com.skyspica.XiaoMi.Vo.ProductsVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skyspica.XiaoMi.Service.*;
 import com.skyspica.XiaoMi.Vo.FenLeiVo;
 import com.skyspica.XiaoMi.Vo.FenLeiOtherVo;
+import com.skyspica.XiaoMi.Vo.ProductsVo;
 
 import java.util.List;
 
@@ -31,5 +33,10 @@ public class feneiLController {
     public List<FenLeiOtherVo> getFenLeiOtherList(){
         logger.info("从数据库读取Slide集合");
         return fenLeiService.getFenLeiOtherList();
+    }
+    @RequestMapping("/products")
+    public List<ProductsVo> getProductList(){
+        logger.info("从数据库读取Slide集合");
+        return fenLeiService.getProductsList();
     }
 }
